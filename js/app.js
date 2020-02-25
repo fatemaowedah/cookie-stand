@@ -1,3 +1,4 @@
+
 'use strict'
 
 var Locations = [];
@@ -65,7 +66,7 @@ Location1.prototype.renderHeader = function () {
     }
 
 
-
+                                                                                               
 }
 Location1.prototype.renderFooter = function () {
     var table = document.getElementById('Table');
@@ -81,6 +82,11 @@ Location1.prototype.renderFooter = function () {
 
     }
 
+
+
+
+
+    
 }
 Location1.prototype.render = function () {
     var table = document.getElementById('Table');
