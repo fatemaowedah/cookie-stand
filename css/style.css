@@ -16,3 +16,84 @@ th {
     border-bottom: 1px solid #e5e5e5;
     color: #444;
 }
+
+header{
+    background-image: url(/img/family.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+}
+* {
+    border: 1px solid black;
+}
+h1 {
+    font-family: sans-serif; 
+    font-weight: bolder;
+    padding: 25px;
+    margin: 25px;
+    text-align: center;
+    color: darkslategray;
+    font-size: 60px;
+}
+h2{
+    font-family: Verdana, Sans-serif; 
+    font-weight: bolder;
+    padding: 2px;
+    margin: 2px;
+    color: darkslategray;
+
+}
+
+body{
+    background-color: #f5f5f5;
+}
+p{
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: initial;
+    color: #685206;
+    font-size: 20px; 
+    line-height: 24px; 
+    margin: 24px; 
+    text-align: justify; 
+    text-justify: inter-word;
+}
+sup {
+    vertical-align: super;
+    font-size: smaller;
+  }
+  h4{
+    font-family: Verdana, Sans-serif; 
+    font-weight: bolder;
+    padding: 2px;
+    margin: 2px;
+    color: darkslategray;
+  }
+  
+  dl {
+      list-style: upper-roman;
+      font-family: Verdana, Sans-serif; 
+     padding-left: 29px;
+     color: #685206;
+     font-size: 19px; 
+     line-height: 29px; 
+  }
+#lstop {
+    margin-bottom: 5px;
+}
+
+.ullist {
+    list-style: square inside;
+    font-family: Verdana, Sans-serif; 
+   padding-left: 29px;
+   color: #685206;
+   font-size: 19px; 
+   line-height: 29px; 
+}
+footer {
+    background-color: slateblue;
+    font-weight: bold;
+    text-align: center;  
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+    padding: 10px;
+    margin-top: 25px;
+}
