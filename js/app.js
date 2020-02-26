@@ -3,7 +3,7 @@
 
 var Locations = [];
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-var totalCookies = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var totalCookies = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 function Location1(location, min, max, avg) {
     this.location = location;
     this.min = min;
@@ -35,12 +35,12 @@ Location1.prototype.cookiesSum = function () {
     this.sum = sumation;
 }
 
-Location1.prototype.total = function (){
+Location1.prototype.total = function () {
     for (var i = 0; i < hours.length; i++) {
         totalCookies[i] = totalCookies[i] + this.cookies[i];
-       
+
     }
-    totalCookies[hours.length]+=this.sum;
+    totalCookies[hours.length] += this.sum;
 }
 Location1.prototype.renderHeader = function () {
     var divE1 = document.createElement('div');
@@ -50,23 +50,23 @@ Location1.prototype.renderHeader = function () {
     var container = document.getElementById('stores');
     var tableE1 = document.createElement('table');
     container.appendChild(tableE1);
-    tableE1.setAttribute('id','Table')
+    tableE1.setAttribute('id', 'Table')
     var trE1 = document.createElement('tr');
     tableE1.appendChild(trE1);
-    for (var i = 0; i < hours.length + 2 ; i++) {
+    for (var i = 0; i < hours.length + 2; i++) {
         var thE = document.createElement('th');
         trE1.appendChild(thE);
-        if(i==0){
+        if (i == 0) {
             thE.textContent = ``;
-        }else if(i == hours.length + 1){
+        } else if (i == hours.length + 1) {
             thE.textContent = `Daily Location Total`;
-        }else{
-            thE.textContent = hours[i-1];
+        } else {
+            thE.textContent = hours[i - 1];
         }
     }
 
 
-                                                                                               
+
 }
 Location1.prototype.renderFooter = function () {
     var table = document.getElementById('Table');
@@ -78,7 +78,7 @@ Location1.prototype.renderFooter = function () {
     for (var i = 0; i < totalCookies.length; i++) {
         var tdE2 = document.createElement('td');
         trE1.appendChild(tdE2);
-       tdE2.textContent = `${totalCookies[i]}`;
+        tdE2.textContent = `${totalCookies[i]}`;
 
     }
 
@@ -86,7 +86,7 @@ Location1.prototype.renderFooter = function () {
 
 
 
-    
+
 }
 Location1.prototype.render = function () {
     var table = document.getElementById('Table');
@@ -98,7 +98,7 @@ Location1.prototype.render = function () {
     for (var i = 0; i < this.cookies.length; i++) {
         var tdE2 = document.createElement('td');
         trE1.appendChild(tdE2);
-       tdE2.textContent = `${this.cookies[i]}`;
+        tdE2.textContent = `${this.cookies[i]}`;
 
     }
 
@@ -114,8 +114,39 @@ var tokyo = new Location1('Tokyo', 3, 24, 1.2);
 var dubai = new Location1('Dubai', 11, 38, 3.7);
 var paris = new Location1('Paris', 20, 38, 2.3);
 var lima = new Location1('Lima', 2, 16, 4.6);
+
+var myform = document.getElementById('place');
+console.log(myform);
+myform.addEventListener('submit', function (event) {
+    event.preventDefault();
+    console.log(event);
+    console.log(event.target);
+    var loc = event.target.loc.value;
+    console.log(loc);
+    var min = event.target.min.value;
+    console.log(min);
+    var max = event.target.max.value;
+    console.log(max);
+    var avg = event.target.avg.value;
+    console.log(avg);
+    var placeObj = new Location1(loc, min, max, avg);
+    // Locations.push(placeObj);
+    document.getElementById("Table").deleteRow(Locations.length);
+    
+    placeObj.avgCustomers();
+    placeObj.cookiesPurchased();
+    placeObj.cookiesSum();
+    placeObj.total();
+    placeObj.render();
+    placeObj.renderFooter();
+
+})
+
+
+
+
 for (var i = 0; i < Locations.length; i++) {
-    if(i==0){
+    if (i == 0) {
         Locations[i].renderHeader();
     }
     Locations[i].avgCustomers();
@@ -123,12 +154,14 @@ for (var i = 0; i < Locations.length; i++) {
     Locations[i].cookiesSum();
     Locations[i].total();
     Locations[i].render();
-    if (i==Locations.length-1){
+    if (i == Locations.length - 1) {
         Locations[i].renderFooter();
     }
 
 }
 console.log(Locations);
+
+
 
     // var seattle = {
     //     location: "Seattle",
