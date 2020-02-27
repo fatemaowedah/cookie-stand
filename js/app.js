@@ -139,7 +139,7 @@ myform.addEventListener('submit', function (event) {
     placeObj.cookiesSum();
     placeObj.total();
     placeObj.render();
-    placeObj.renderFooter(); alert('the max must be bigger than min')
+    placeObj.renderFooter();
     }
 
 })
