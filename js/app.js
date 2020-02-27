@@ -128,17 +128,19 @@ myform.addEventListener('submit', function (event) {
     var max = event.target.max.value;
     console.log(max);
     var avg = event.target.avg.value;
-    console.log(avg);
-    var placeObj = new Location1(loc, min, max, avg);
-    // Locations.push(placeObj);
+    if (max < min){
+        alert('Please Enter Maximum no of cookies greater than Minumam no')
+    }else{
+        console.log(avg);
+        var placeObj = new Location1(loc, Number(min), Number(max), Number(avg));
     document.getElementById("Table").deleteRow(Locations.length);
-    
     placeObj.avgCustomers();
     placeObj.cookiesPurchased();
     placeObj.cookiesSum();
     placeObj.total();
     placeObj.render();
-    placeObj.renderFooter();
+    placeObj.renderFooter(); alert('the max must be bigger than min')
+    }
 
 })
 
