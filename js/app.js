@@ -128,7 +128,7 @@ myform.addEventListener('submit', function (event) {
     var max = event.target.max.value;
     console.log(max);
     var avg = event.target.avg.value;
-    if (max < min){
+    if (max > min){
         alert('Please Enter Maximum no of cookies greater than Minumam no')
     }else{
         console.log(avg);
